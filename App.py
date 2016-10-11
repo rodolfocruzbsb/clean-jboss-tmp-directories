@@ -4,6 +4,7 @@
 from DAO import ServidoresDAO
 from Tkinter import *
 import ConfigParser
+import os
 
 class Application:
   def __init__(self, master=None):
@@ -110,8 +111,8 @@ class Application:
   def buscarPreferencial(self):      
 
       cfg = ConfigParser.ConfigParser() 
-
-      cfg.read('config.ini')
+      
+      cfg.read(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'conf', 'config.ini'))      
             
       pathDefault = cfg.get('dir', 'default')
 
